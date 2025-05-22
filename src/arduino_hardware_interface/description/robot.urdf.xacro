@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot name="arduino_bot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Basic geometry -->
+  <link name="base_link">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+  </link>
+
+  <link name="left_wheel"/>
+  <link name="right_wheel"/>
+
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0.0 0.1 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <origin xyz="0.0 -0.1 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Include ros2_control -->
+  <xacro:include filename="$(find arduino_hardware_interface)/description/ros2_control.xacro"/>
+  <xacro:arduino_ros2_control prefix=""/>
+</robot>

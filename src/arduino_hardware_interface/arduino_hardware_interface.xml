@@ -1,0 +1,8 @@
+<library path="arduino_system">
+  <class
+    name="arduino_hardware_interface/ArduinoSystemHardware"
+    type="arduino_hardware_interface::ArduinoSystemHardware"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>Arduino-based differential drive hardware interface</description>
+  </class>
+</library>
